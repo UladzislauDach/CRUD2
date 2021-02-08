@@ -2,7 +2,6 @@ package by.dach.controllers;
 
 import by.dach.dao.PersonDAO;
 import by.dach.models.Person;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
