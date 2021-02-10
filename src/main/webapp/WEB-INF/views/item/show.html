@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://thymeleaf.org">
+    <title>All orders</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>Person id</th>
+        <th>Person name</th>
+        <th>Email</th>
+        <th>Item name</th>
+        <th>Item quantity</th>
+        <th>Date of item</th>
+    </tr>
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.personId}"/>
+        <td th:text="${order.name}"/>
+        <td th:text="${order.email}"/>
+        <td th:text="${order.itemName}"/>
+        <td th:text="${order.itemQuantity}"/>
+        <td th:text="${order.date}"/>
+        </br>
+    </tr>
+</table>
+</br>
+<a href="/people">Return back</a>
+</body>
+</html>

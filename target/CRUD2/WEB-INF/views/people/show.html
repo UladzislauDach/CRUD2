@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Person</title>
+</head>
+<body>
+<p th:text="${person.getName() + ', ' + person.getAge()}">VALUE</p>
+<p th:text="${'Email: ' + person.getEmail()}">VALUE</p>
+<p th:text="${person.getId()}">VALUE</p>
+</br>
+
+<a th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit person</a>
+
+</br>
+
+<form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+
+</br>
+<a th:href="@{/order/{id}(id=${person.getId()})}">Make order</a>
+</br>
+
+<table border="1">
+    <tr>
+        <th>itemId</th>
+        <th>personId</th>
+        <th>name</th>
+        <th>quantity</th>
+        <th>storeId</th>
+        <th>Date of order</th>
+    </tr>
+    <tr th:each="item : ${items}">
+        <td th:text="${item.id}"/>
+        <td th:text="${item.personId}"/>
+        <td th:text="${item.name}"/>
+        <td th:text="${item.quantity}"/>
+        <td th:text="${item.storeId}"/>
+        <td th:text="${item.date}"/>
+        </br>
+    </tr>
+</table>
+</body>
+</html>

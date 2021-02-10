@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Store report</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>Person id</td>
+        <td>Person name</td>
+        <td>Item name</td>
+        <td>Item quantity</td>
+        <td>Date of item</td>
+    </tr>
+    <tr th:each="report:${reports}">
+        <td th:text="${report.personId}"/>
+        <td th:text="${report.personName}"/>
+        <td th:text="${report.itemName}"/>
+        <td th:text="${report.quantity}"/>
+        <td th:text="${report.date}"/>
+    </tr>
+</table>
+</br>
+<a href="/people">Go to main page</a>
+</body>
+</html>

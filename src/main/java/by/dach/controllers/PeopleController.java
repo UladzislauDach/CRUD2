@@ -1,5 +1,6 @@
 package by.dach.controllers;
 
+import by.dach.dao.ItemDAO;
 import by.dach.dao.PersonDAO;
 import by.dach.models.Person;
 import org.springframework.stereotype.Controller;
@@ -14,9 +15,11 @@ import javax.validation.Valid;
 public class PeopleController {
 
     private final PersonDAO personDAO;
+    private final ItemDAO itemDAO;
 
-    public PeopleController(PersonDAO personDAO) {
+    public PeopleController(PersonDAO personDAO, ItemDAO itemDAO) {
         this.personDAO = personDAO;
+        this.itemDAO = itemDAO;
     }
 
     @GetMapping
@@ -28,6 +31,7 @@ public class PeopleController {
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("person", personDAO.show(id));
+        model.addAttribute("items", itemDAO.show(id));
         return "people/show";
     }
 
@@ -51,14 +55,14 @@ public class PeopleController {
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("person") @Valid Person person,BindingResult bindingResult, @PathVariable("id") int id) {
+    public String update(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult, @PathVariable("id") int id) {
         if (bindingResult.hasErrors()) return "people/edit";
         personDAO.update(id, person);
         return "redirect:/people";
     }
 
     @DeleteMapping("{id}")
-    public String delete(@PathVariable("id") int id){
+    public String delete(@PathVariable("id") int id) {
         personDAO.delete(id);
         return "redirect:/people";
     }

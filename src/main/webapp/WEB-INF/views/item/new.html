@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New item</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/order}" th:object="${item}">
+    <label for="name">Enter item name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+
+    <br/>
+    <label for="quantity">Enter quantity: </label>
+    <input type="text" th:field="*{quantity}" id="quantity"/>
+
+    <br/>
+    <label for="storeId">Enter storeId: </label>
+    <input type="text" th:field="*{storeId}" id="storeId"/>
+
+    <a>1 - 21vek (hardware)</a>
+    <a>2 - Gippo (products)</a>
+    <a>3 - H&M (clothes)</a>
+
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+
+</body>
+</html>
