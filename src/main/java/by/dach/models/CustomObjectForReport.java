@@ -7,13 +7,13 @@ public class CustomObjectForReport {
     private String personName;
     private String itemName;
     private int quantity;
-    private String  date; //local date time
+    private LocalDateTime  date; //local date time
    // private LocalDateTime date; //local date time
 
     public CustomObjectForReport() {
     }
 
-    public CustomObjectForReport(int personId, String personName, String itemName, int quantity, String date) {
+    public CustomObjectForReport(int personId, String personName, String itemName, int quantity, LocalDateTime date) {
         this.personId = personId;
         this.personName = personName;
         this.itemName = itemName;
@@ -53,11 +53,11 @@ public class CustomObjectForReport {
         this.quantity = quantity;
     }
 
-    public String getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 }

@@ -1,16 +1,18 @@
 package by.dach.models;
 
+import java.time.LocalDateTime;
+
 public class MyCustomObject {
     private int personId;
     private String name;
     private String email;
     private String itemName;
     private int itemQuantity;
-    private String date;
+    private LocalDateTime date;
 
     public MyCustomObject(){}
 
-    public MyCustomObject(int personId, String name, String email, String itemName, int itemQuantity, String date) {
+    public MyCustomObject(int personId, String name, String email, String itemName, int itemQuantity, LocalDateTime date) {
         this.personId = personId;
         this.name = name;
         this.email = email;
@@ -19,11 +21,11 @@ public class MyCustomObject {
         this.date = date;
     }
 
-    public String getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

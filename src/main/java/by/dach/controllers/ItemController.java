@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Controller
 @RequestMapping("/order")
@@ -33,8 +33,10 @@ public class ItemController {
 
     @PostMapping
     public String createItem(@ModelAttribute("item") Item item) {
+
         item.setPersonId(personId);
-        item.setDate(new Date().toString());
+        LocalDateTime now = LocalDateTime.now();
+        item.setDate(now);
         itemDAO.save(item);
         return "redirect:/people";
     }
@@ -43,5 +45,10 @@ public class ItemController {
     public String showAll(Model model) {
         model.addAttribute("orders", itemDAO.showAll());
         return "item/show";
+    }
+    @GetMapping("/date_report")
+    public String showDateOrders(Model model) {
+        model.addAttribute("orders", itemDAO.showDateOrders());
+        return "item/show_date_report";
     }
 }

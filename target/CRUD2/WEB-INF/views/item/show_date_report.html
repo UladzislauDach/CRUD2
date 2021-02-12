@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Date report</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>Date</td>
+        <td>Person name</td>
+        <td>Person email</td>
+        <td>Store name</td>
+        <td>Store type</td>
+        <td>Item name</td>
+        <td>Item quantity</td>
+    </tr>
+    <tr th:each="order:${orders}">
+        <td th:text="${order.date}"/>
+        <td th:text="${order.personName}"/>
+        <td th:text="${order.personEmail}"/>
+        <td th:text="${order.storeName}"/>
+        <td th:text="${order.storeType}"/>
+        <td th:text="${order.itemName}"/>
+        <td th:text="${order.quantity}"/>
+    </tr>
+</table>
+</body>
+</html>

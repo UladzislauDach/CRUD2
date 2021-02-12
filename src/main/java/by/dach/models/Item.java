@@ -1,5 +1,6 @@
 package by.dach.models;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Item {
@@ -8,9 +9,9 @@ public class Item {
     private String name;
     private int quantity;
     private int storeId;
-    private String  date;
+    private LocalDateTime date;
 
-    public Item(int id, int personId, String name, int quantity, int storeId, String date) {
+    public Item(int id, int personId, String name, int quantity, int storeId, LocalDateTime date) {
         this.id = id;
         this.personId = personId;
         this.name = name;
@@ -22,11 +23,11 @@ public class Item {
     public Item() {
     }
 
-    public String getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
