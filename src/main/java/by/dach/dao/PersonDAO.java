@@ -52,7 +52,7 @@ public class PersonDAO {
     public void save(Person person) {
         try {
             PreparedStatement preparedStatement =
-                    DBConnect.connection.prepareStatement("INSERT INTO Person VALUES ( ?,?, ?)");
+                    DBConnect.connection.prepareStatement("INSERT INTO Person (name, age, email) VALUES ( ?,?,?)");
             preparedStatement.setString(1, person.getName());
             preparedStatement.setInt(2, person.getAge());
             preparedStatement.setString(3, person.getEmail());

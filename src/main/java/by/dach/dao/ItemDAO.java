@@ -17,12 +17,12 @@ public class ItemDAO {
     public void save(Item item) {
         try {
             PreparedStatement preparedStatement =
-                    DBConnect.connection.prepareStatement("INSERT INTO item (person_id, name, quantity, store_id, date) VALUES (?,?,?,?,?)");
+                    DBConnect.connection.prepareStatement("INSERT INTO item (person_id, name, quantity, store_id) VALUES (?,?,?,?)");
             preparedStatement.setInt(1, item.getPersonId());
             preparedStatement.setString(2, item.getName());
             preparedStatement.setInt(3, item.getQuantity());
             preparedStatement.setInt(4, item.getStoreId());
-            preparedStatement.setString(5,item.getDate());
+            //preparedStatement.setString(5,item.getDate());
 
             preparedStatement.executeUpdate();
 

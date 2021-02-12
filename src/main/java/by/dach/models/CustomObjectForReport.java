@@ -1,11 +1,14 @@
 package by.dach.models;
 
+import java.time.LocalDateTime;
+
 public class CustomObjectForReport {
     private int personId;
     private String personName;
     private String itemName;
     private int quantity;
-    private String date;
+    private String  date; //local date time
+   // private LocalDateTime date; //local date time
 
     public CustomObjectForReport() {
     }
