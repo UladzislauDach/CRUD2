@@ -10,11 +10,13 @@ public class DateReport {
     private String storeType;
     private String itemName;
     private int quantity;
+    private int personId;
 
-    public DateReport(){}
+    public DateReport() {
+    }
 
-    public DateReport(LocalDateTime date, String personName, String personEmail,
-                      String storeName, String storeType, String itemName, int quantity) {
+    public DateReport(LocalDateTime date, String personName, String personEmail, String storeName,
+                      String storeType, String itemName, int quantity, int personId) {
         this.date = date;
         this.personName = personName;
         this.personEmail = personEmail;
@@ -22,6 +24,7 @@ public class DateReport {
         this.storeType = storeType;
         this.itemName = itemName;
         this.quantity = quantity;
+        this.personId = personId;
     }
 
     public LocalDateTime getDate() {
@@ -78,5 +81,13 @@ public class DateReport {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public int getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
     }
 }

@@ -99,7 +99,7 @@ public class ItemDAO {
     public List<DateReport> showDateOrders() {
         List<DateReport> list = new ArrayList<>();
         try {
-            String sql = "select i.date,p.name,p.email, s.name, s.type, i.name,i.quantity " +
+            String sql = "select i.date,p.name,p.email, s.name, s.type, i.name,i.quantity,p.id " +
                     "from person p inner join item i on p.id = i.person_id inner join store s " +
                     "on i.store_id = s.id order by date;";
             Statement statement = DBConnect.connection.createStatement();
@@ -113,6 +113,7 @@ public class ItemDAO {
                 dateReport.setStoreType(resultSet.getString(5));
                 dateReport.setItemName(resultSet.getString(6));
                 dateReport.setQuantity(resultSet.getInt(7));
+                dateReport.setPersonId(resultSet.getInt(8));
                 list.add(dateReport);
             }
         } catch (SQLException throwables) {
