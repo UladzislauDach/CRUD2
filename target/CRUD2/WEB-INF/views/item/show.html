@@ -20,7 +20,7 @@
         <td th:text="${order.email}"/>
         <td th:text="${order.itemName}"/>
         <td th:text="${order.itemQuantity}"/>
-        <td th:text="${order.date}"/>
+        <td th:text="${#temporals.format(order.date, 'dd-MM-yyyy HH:mm:ss')}"/>
         </br>
     </tr>
 </table>

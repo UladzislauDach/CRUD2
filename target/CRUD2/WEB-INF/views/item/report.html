@@ -18,7 +18,7 @@
         <td th:text="${report.personName}"/>
         <td th:text="${report.itemName}"/>
         <td th:text="${report.quantity}"/>
-        <td th:text="${report.date}"/>
+        <td th:text="${#temporals.format(report.date, 'dd-MM-yyyy HH:mm:ss')}"/>
     </tr>
 </table>
 </br>

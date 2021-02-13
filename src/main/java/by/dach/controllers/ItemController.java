@@ -49,6 +49,8 @@ public class ItemController {
     @GetMapping("/date_report")
     public String showDateOrders(Model model) {
         model.addAttribute("orders", itemDAO.showDateOrders());
+        LocalDateTime localDateTime = LocalDateTime.now();
+        model.addAttribute("localDateTime", localDateTime);
         return "item/show_date_report";
     }
 }
