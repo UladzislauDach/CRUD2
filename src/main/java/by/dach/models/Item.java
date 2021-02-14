@@ -10,25 +10,18 @@ public class Item {
     private int quantity;
     private int storeId;
     private LocalDateTime date;
+    private int price;
 
-    public Item(int id, int personId, String name, int quantity, int storeId, LocalDateTime date) {
+    public Item() {
+    }
+    public Item(int id, int personId, String name, int quantity, int storeId, LocalDateTime date, int price) {
         this.id = id;
         this.personId = personId;
         this.name = name;
         this.quantity = quantity;
         this.storeId = storeId;
-        this.date=date;
-    }
-
-    public Item() {
-    }
-
-    public LocalDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDateTime date) {
         this.date = date;
+        this.price = price;
     }
 
     public int getId() {
@@ -69,5 +62,21 @@ public class Item {
 
     public void setStoreId(int storeId) {
         this.storeId = storeId;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

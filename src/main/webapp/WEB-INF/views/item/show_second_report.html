@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Show second report</title>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <td>Store name</td>
+        <td>Store temp</td>
+    </tr>
+    <tr th:each="report : ${reports}">
+        <td th:text="${report.storeName}">
+        <td th:text="${report.temp}">
+    </tr>
+</table>
+</body>
+</html>

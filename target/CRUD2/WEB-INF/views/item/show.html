@@ -12,6 +12,7 @@
         <th>Email</th>
         <th>Item name</th>
         <th>Item quantity</th>
+        <th>Item price</th>
         <th>Date of item</th>
     </tr>
     <tr th:each="order : ${orders}">
@@ -20,6 +21,7 @@
         <td th:text="${order.email}"/>
         <td th:text="${order.itemName}"/>
         <td th:text="${order.itemQuantity}"/>
+        <td th:text="${order.itemPrice}"/>
         <td th:text="${#temporals.format(order.date, 'dd-MM-yyyy HH:mm:ss')}"/>
         </br>
     </tr>

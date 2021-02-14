@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Second report</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/order/second_report}" th:object="${report}">
+
+    <label for="chose">Chose report type: </label>
+    <select th:field="*{chose}" id="chose">
+        <option th:value="'s'">Report sum all orders</option>
+        <option th:value="'c'">Report count all orders</option>
+    </select>
+    </br>
+    </br>
+    <label for="day">Enter the number of days (0 - all):</label>
+    <input type="text" th:field="*{days}" id="day">
+    </br>
+
+    <input type="submit" value="Generate!"/>
+
+
+</form>
+</body>
+</html>

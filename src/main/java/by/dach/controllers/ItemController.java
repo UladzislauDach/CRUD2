@@ -2,6 +2,7 @@ package by.dach.controllers;
 
 import by.dach.dao.ItemDAO;
 import by.dach.models.Item;
+import by.dach.models.SecondReport;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +34,6 @@ public class ItemController {
 
     @PostMapping
     public String createItem(@ModelAttribute("item") Item item) {
-
         item.setPersonId(personId);
         LocalDateTime now = LocalDateTime.now();
         item.setDate(now);
@@ -49,8 +49,17 @@ public class ItemController {
     @GetMapping("/date_report")
     public String showDateOrders(Model model) {
         model.addAttribute("orders", itemDAO.showDateOrders());
-        LocalDateTime localDateTime = LocalDateTime.now();
-        model.addAttribute("localDateTime", localDateTime);
         return "item/show_date_report";
+    }
+
+    @GetMapping("/second_report")
+    public String getSecondReport(Model model){
+        model.addAttribute("report", new SecondReport());
+        return "/item/form_for_second_report";
+    }
+    @PostMapping("/second_report")
+    public String getSecondReport(@ModelAttribute ("report") SecondReport report, Model model){
+        model.addAttribute("reports", itemDAO.getSecondReport(report));
+        return "/item/show_second_report";
     }
 }

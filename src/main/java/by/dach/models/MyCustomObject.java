@@ -9,24 +9,19 @@ public class MyCustomObject {
     private String itemName;
     private int itemQuantity;
     private LocalDateTime date;
+    private int itemPrice;
 
-    public MyCustomObject(){}
+    public MyCustomObject() {
+    }
 
-    public MyCustomObject(int personId, String name, String email, String itemName, int itemQuantity, LocalDateTime date) {
+    public MyCustomObject(int personId, String name, String email, String itemName, int itemQuantity, LocalDateTime date, int itemPrice) {
         this.personId = personId;
         this.name = name;
         this.email = email;
         this.itemName = itemName;
         this.itemQuantity = itemQuantity;
         this.date = date;
-    }
-
-    public LocalDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
+        this.itemPrice = itemPrice;
     }
 
     public int getPersonId() {
@@ -67,5 +62,21 @@ public class MyCustomObject {
 
     public void setItemQuantity(int itemQuantity) {
         this.itemQuantity = itemQuantity;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
+
+    public int getItemPrice() {
+        return itemPrice;
+    }
+
+    public void setItemPrice(int itemPrice) {
+        this.itemPrice = itemPrice;
     }
 }

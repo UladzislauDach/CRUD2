@@ -30,6 +30,7 @@
         <th>quantity</th>
         <th>storeId</th>
         <th>Date of order</th>
+        <th>Item price</th>
     </tr>
     <tr th:each="item : ${items}">
         <td th:text="${item.id}"/>
@@ -38,6 +39,7 @@
         <td th:text="${item.quantity}"/>
         <td th:text="${item.storeId}"/>
         <td th:text="${#temporals.format(item.date, 'dd-MM-yyyy HH:mm:ss')}"/>
+        <td th:text="${item.price}"/>
         </br>
     </tr>
 </table>
