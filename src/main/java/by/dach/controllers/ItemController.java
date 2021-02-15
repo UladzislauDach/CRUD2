@@ -46,6 +46,7 @@ public class ItemController {
         model.addAttribute("orders", itemDAO.showAll());
         return "item/show";
     }
+
     @GetMapping("/date_report")
     public String showDateOrders(Model model) {
         model.addAttribute("orders", itemDAO.showDateOrders());
@@ -53,12 +54,18 @@ public class ItemController {
     }
 
     @GetMapping("/second_report")
-    public String getSecondReport(Model model){
+    public String getSecondReport(Model model) {
         model.addAttribute("report", new SecondReport());
         return "/item/form_for_second_report";
     }
+
     @PostMapping("/second_report")
-    public String getSecondReport(@ModelAttribute ("report") SecondReport report, Model model){
+    public String getSecondReport(@ModelAttribute("report") SecondReport report, Model model) {
+        //сначала получить результат, потом проверять
+        if (itemDAO.getSecondReport(report).isEmpty()) {
+            model.addAttribute("reportIsEmpty", true);
+            return "/item/form_for_second_report";
+        }
         model.addAttribute("reports", itemDAO.getSecondReport(report));
         return "/item/show_second_report";
     }

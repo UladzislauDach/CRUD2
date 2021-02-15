@@ -67,4 +67,10 @@ public class PeopleController {
         return "redirect:/people";
     }
 
+    @GetMapping ("/test")
+    @ResponseBody
+    public Person testMethod(){
+        return new Person(5, "Elon", 32, "elon32@mail.com");
+    }
+
 }

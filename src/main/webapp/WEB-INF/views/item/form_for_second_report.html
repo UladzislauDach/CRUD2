@@ -6,7 +6,6 @@
 </head>
 <body>
 <form th:method="POST" th:action="@{/order/second_report}" th:object="${report}">
-
     <label for="chose">Chose report type: </label>
     <select th:field="*{chose}" id="chose">
         <option th:value="'s'">Report sum all orders</option>
@@ -17,7 +16,12 @@
     <label for="day">Enter the number of days (0 - all):</label>
     <input type="text" th:field="*{days}" id="day">
     </br>
-
+    </br>
+    <label for="pattern">Enter pattern store name for search (empty - all):</label>
+    <input type="text" th:field="*{pattern}" id="pattern">
+    <h2 th:if="${reportIsEmpty}" th:text="'Enter correct value'">Hello!</h2>
+    </br>
+    </br>
     <input type="submit" value="Generate!"/>
 
 

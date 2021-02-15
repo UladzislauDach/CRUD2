@@ -10,16 +10,20 @@ public class SecondReport {
     private int temp;
     private char chose; // (sum or count)
     private int days;
+    private String pattern;
+    private boolean isEmpty;
 
     public SecondReport() {
     }
 
-    public SecondReport(int storeId, String storeName, int temp, char chose, int days) {
+    public SecondReport(int storeId, String storeName, int temp, char chose, int days, String pattern, boolean isEmpty) {
         this.storeId = storeId;
         this.storeName = storeName;
         this.temp = temp;
         this.chose = chose;
         this.days = days;
+        this.pattern = pattern;
+        this.isEmpty = isEmpty;
     }
 
     public int getStoreId() {
@@ -60,5 +64,21 @@ public class SecondReport {
 
     public void setDays(int days) {
         this.days = days;
+    }
+
+    public String getPattern() {
+        return pattern;
+    }
+
+    public void setPattern(String pattern) {
+        this.pattern = pattern;
+    }
+
+    public boolean isEmpty() {
+        return isEmpty;
+    }
+
+    public void setEmpty(boolean empty) {
+        isEmpty = empty;
     }
 }
