@@ -128,46 +128,32 @@ public class ItemDAO {
 
     public List<SecondReport> getSecondReport(SecondReport secondReport) {
         List<SecondReport> list = new ArrayList<>();
-        StringBuilder sql = new StringBuilder("select store.name, ");
-        String sql2 = "";
-        String sql3 = "(price) as temp from item inner join store on item.store_id = store.id";
-        String sql4 = "";
-        String sql5 = "";
-        String sql6 = " group by store.name;";
+        StringBuilder sqlBuilder = new StringBuilder("select store.name, ");
         switch (secondReport.getChose()) {
             case 'c':
-                sql2 = "count";
+                sqlBuilder.append("count");
                 break;
             case 's':
-                sql2 = "sum";
+                sqlBuilder.append("sum");
                 break;
-            default:
-                sql2 = null;
         }
+        sqlBuilder.append("(price) as result from item inner join store on item.store_id = store.id");
         if (secondReport.getDays() != 0) {
-            StringBuilder partOfSql = new StringBuilder(" where date between '");
             LocalDateTime localDateTime = LocalDateTime.now();
-            partOfSql.append(localDateTime.minusDays(secondReport.getDays()));
-            partOfSql.append("' and '");
-            partOfSql.append(localDateTime.toString());
-            partOfSql.append("'");
-            sql4 = partOfSql.toString();
+            sqlBuilder.append(" where date between '").append(localDateTime.minusDays(secondReport.getDays()))
+                    .append("' and '").append(localDateTime).append("'");
         }
         if (!secondReport.getPattern().isEmpty()) {
-            StringBuilder pertOfSql = new StringBuilder(" and store.name like '%");
-            pertOfSql.append(secondReport.getPattern());
-            pertOfSql.append("%'");
-            sql5 = pertOfSql.toString();
+            sqlBuilder.append(" and store.name like '%").append(secondReport.getPattern()).append("%'");
         }
-        sql.append(sql2).append(sql3).append(sql4).append(sql5).append(sql6);
+        sqlBuilder.append(" group by store.name;");
         try {
             Statement statement = DBConnect.connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql.toString());
-            // System.out.println(sql);
+            ResultSet resultSet = statement.executeQuery(sqlBuilder.toString());
             while (resultSet.next()) {
                 SecondReport secondReportDb = new SecondReport();
                 secondReportDb.setStoreName(resultSet.getString("name"));
-                secondReportDb.setTemp(resultSet.getInt("temp"));
+                secondReportDb.setResult(resultSet.getInt("result"));
                 list.add(secondReportDb);
             }
         } catch (SQLException throwables) {

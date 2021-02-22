@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 public class SecondReport {
     private int storeId;
     private String storeName;
-    private int temp;
+    private int result;
     private char chose; // (sum or count)
     private int days;
     private String pattern;
@@ -16,10 +16,10 @@ public class SecondReport {
     public SecondReport() {
     }
 
-    public SecondReport(int storeId, String storeName, int temp, char chose, int days, String pattern, boolean isEmpty) {
+    public SecondReport(int storeId, String storeName, int result, char chose, int days, String pattern, boolean isEmpty) {
         this.storeId = storeId;
         this.storeName = storeName;
-        this.temp = temp;
+        this.result = result;
         this.chose = chose;
         this.days = days;
         this.pattern = pattern;
@@ -42,12 +42,12 @@ public class SecondReport {
         this.storeName = storeName;
     }
 
-    public int getTemp() {
-        return temp;
+    public int getResult() {
+        return result;
     }
 
-    public void setTemp(int temp) {
-        this.temp = temp;
+    public void setResult(int result) {
+        this.result = result;
     }
 
     public char getChose() {

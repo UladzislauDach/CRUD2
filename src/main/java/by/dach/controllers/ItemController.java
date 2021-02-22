@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/order")
@@ -61,12 +63,12 @@ public class ItemController {
 
     @PostMapping("/second_report")
     public String getSecondReport(@ModelAttribute("report") SecondReport report, Model model) {
-        //сначала получить результат, потом проверять
-        if (itemDAO.getSecondReport(report).isEmpty()) {
+        List<SecondReport> resultList = itemDAO.getSecondReport(report);
+        if (resultList.isEmpty()) {
             model.addAttribute("reportIsEmpty", true);
             return "/item/form_for_second_report";
         }
-        model.addAttribute("reports", itemDAO.getSecondReport(report));
+        model.addAttribute("reports", resultList);
         return "/item/show_second_report";
     }
 }

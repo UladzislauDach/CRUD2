@@ -5,15 +5,14 @@
     <title>Show second report</title>
 </head>
 <body>
-
 <table border="1">
     <tr>
         <td>Store name</td>
-        <td>Store temp</td>
+        <td>Result</td>
     </tr>
     <tr th:each="report : ${reports}">
         <td th:text="${report.storeName}">
-        <td th:text="${report.temp}">
+        <td th:text="${report.result}">
     </tr>
 </table>
 </body>
